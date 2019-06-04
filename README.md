@@ -23,13 +23,13 @@ python dataset_download.py \
 ### Preprocessing
 - training_set = {60000 * 28 * 28 size, 0~255 value, 0~9 label}, test_set = {10000 * 28 * 28 size, 0~255 value, 0~9 label} 
 - Input : raw_data folder, MNIST file
-- Output : preprocess folder, test.pt, training.pt
+- Output : preprocess folder, train.pt, test.pt
 ```shell
 python preprocessing.py
 ```
 
 ### modeling
-- Input : preprocess folder, test.pt, training.pt
+- Input : preprocess folder, train.pt, test.pt
 - Output : 
 ```shell
 python modeling.py \

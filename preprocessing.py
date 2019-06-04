@@ -8,7 +8,7 @@ import numpy as np
 def preprocessing():
     raw_folder = "raw_data"
     preprocessed_folder = "preprocess"
-    training_file = 'training.pt'
+    training_file = 'train.pt'
     test_file = 'test.pt'
 
     # read image, label file

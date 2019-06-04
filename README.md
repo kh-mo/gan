@@ -31,3 +31,9 @@ python preprocessing.py
 ### modeling
 - Input : preprocess folder, test.pt, training.pt
 - Output : 
+```shell
+python modeling.py \
+    --batch_size = 64
+    --epochs = 25
+    --latent_z_dim = 100
+```

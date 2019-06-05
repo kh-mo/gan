@@ -2,6 +2,7 @@ import os
 import torch
 import argparse
 import torch.nn as nn
+from torch.utils.data import DataLoader
 
 class Generator(nn.Module):
     def __init__(self, args):
@@ -22,11 +23,13 @@ class Discriminator(nn.Module):
         self.layer1 = nn.Linear(784, 128)
         self.relu1 = nn.ReLU()
         self.layer2 = nn.Linear(128, 1)
+        self.sigmoid1 = nn.Sigmoid()
 
     def forward(self, x):
         x = self.layer1(x)
         x = self.relu1(x)
         x = self.layer2(x)
+        x = self.sigmoid1(x)
         return x
 
 if __name__ == "__main__":
@@ -39,6 +42,8 @@ if __name__ == "__main__":
     ## load dataset
     train_images, train_labels = torch.load(os.path.join(os.getcwd(), "preprocess/train.pt"))
     test_images, test_labels = torch.load(os.path.join(os.getcwd(), "preprocess/test.pt"))
+    train_images_loader = DataLoader(train_images, batch_size=args.batch_size)
+    test_images_loader = DataLoader(test_images)
 
     ## modeling
     normal_distribution = torch.distributions.normal.Normal(loc=torch.tensor(0.), scale=torch.tensor(1.))
@@ -50,11 +55,13 @@ if __name__ == "__main__":
 
     ## training
     for epoch in range(args.epochs):
-        z = normal_distribution.sample(sample_shape=torch.Size([args.batch_size, args.latent_z_dim]))
-        generated_image = G(z)
-        D(real_image, D(z))
+        for sample in train_images_loader:
 
-        g_loss = 10
-        optimizer_G.zero_grad()
-        g_loss.backward()
-        optimizer_G.step()
+            z = normal_distribution.sample(sample_shape=torch.Size([args.batch_size, args.latent_z_dim]))
+            generated_image = G(z)
+            D(real_image, D(z))
+
+            g_loss = 10
+            optimizer_G.zero_grad()
+            g_loss.backward()
+            optimizer_G.step()

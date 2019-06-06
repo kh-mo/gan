@@ -43,7 +43,7 @@ def read_image_file(path):
         num_rows = get_int(data[8:12])
         num_cols = get_int(data[12:16])
         parsed = np.frombuffer(data, dtype=np.uint8, offset=16)
-        return torch.from_numpy(parsed).view(length, num_rows, num_cols)
+        return torch.from_numpy(parsed).view(length, num_rows, num_cols).type(torch.FloatTensor)
 
 def read_label_file(path):
     with open(path, 'rb') as f:

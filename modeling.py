@@ -93,3 +93,11 @@ if __name__ == "__main__":
         generated_image = G(z)
         print("epoch :", epoch, ",\t g_loss :", sum(g_loss_list)/len(g_loss_list), ",\t d_loss :", sum(d_loss_list)/len(d_loss_list))
         save_images(generated_image, epoch)
+
+
+    try:
+        os.mkdir(os.path.join(os.getcwd(), "saved_model"))
+    except FileExistsError as e:
+        pass
+    torch.save(G.state_dict(), os.path.join(os.getcwd(), "saved_model/generator"))
+    torch.save(D.state_dict(), os.path.join(os.getcwd(), "saved_model/discriminator"))

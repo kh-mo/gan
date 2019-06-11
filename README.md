@@ -30,10 +30,18 @@ python preprocessing.py
 
 ### modeling
 - Input : preprocess folder, train.pt
-- Output : 
+- Output : saved_image folder, images_per_epoch, saved_model folder, generator model, discriminator model
 ```shell
 python modeling.py \
     --batch_size = 64
     --epochs = 25
     --latent_z_dim = 100
+```
+
+### evaluating
+- Input : saved_model folder, generator model, discriminator model
+- Output : evaluated_image folder, eval_images
+```shell
+python evaluating.py \
+    --num_images = 2
 ```

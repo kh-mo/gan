@@ -6,7 +6,11 @@ This repository is implemented by Pytorch
 
 ## Result
 
-## Architecture
+All results are randomly sampled.
+
+*Epoch 1* | *Epoch 10* | *Epoch 25*
+:---: | :---: | :---: |
+<img src = 'saved_image/1_epoch_image.png'> | <img src = 'saved_image/10_epoch_image.png'> | <img src = 'saved_image/25_epoch_image.png'>
 
 ## Loss
 

@@ -1,6 +1,6 @@
 # Generative Adversarial Nets
 
-This repository is implemented by Pytorch
+This repository is implemented by Pytorch.
 
 **GAN**: [Paper](https://papers.nips.cc/paper/5423-generative-adversarial-nets.pdf)
 
@@ -13,6 +13,11 @@ All results are randomly sampled.
 <img src = 'saved_image/1_epoch_image.png'> | <img src = 'saved_image/10_epoch_image.png'> | <img src = 'saved_image/25_epoch_image.png'>
 
 ## Loss
+
+ *Description* |*Value Function* |
+:---: | :---: |
+Generator Loss | <img src = 'equation/g_loss.gif'> |
+Discriminator Loss | <img src = 'equation/d_loss.gif'> |
 
 ## Getting Start
 ### Download data

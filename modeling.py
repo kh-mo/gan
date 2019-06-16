@@ -43,7 +43,7 @@ def save_images(image, epoch):
         os.mkdir(saved_folder)
     except FileExistsError as e:
         pass
-    save_image(image, saved_folder+'/'+str(epoch)+' epoch_images.png', nrow=5)
+    save_image(image, saved_folder+'/'+str(epoch+1)+'_epoch_image.png', nrow=5)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()

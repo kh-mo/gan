@@ -2,6 +2,8 @@
 
 This repository is implemented by Pytorch.
 
+[NIPS 2014]
+
 **GAN**: [Paper](https://papers.nips.cc/paper/5423-generative-adversarial-nets.pdf) | [Blog](https://kh-mo.github.io/generative-model/2019/05/03/generative_adversarial_nets/)
 
 ## Result
